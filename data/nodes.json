@@ -1,0 +1,102 @@
+[
+  {
+    "node_id": "NODE-01",
+    "name": "Delhi",
+    "type": "warehouse",
+    "city": "Delhi",
+    "state": "Delhi",
+    "connected_routes": ["RT-001", "RT-002", "RT-003", "RT-004"],
+    "avg_processing_time_hours": 2.5,
+    "congestion_level": "high"
+  },
+  {
+    "node_id": "NODE-02",
+    "name": "Mumbai",
+    "type": "warehouse",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "connected_routes": ["RT-005", "RT-006"],
+    "avg_processing_time_hours": 3.0,
+    "congestion_level": "high"
+  },
+  {
+    "node_id": "NODE-03",
+    "name": "Pune",
+    "type": "hub",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "connected_routes": ["RT-005", "RT-006"],
+    "avg_processing_time_hours": 1.5,
+    "congestion_level": "medium"
+  },
+  {
+    "node_id": "NODE-04",
+    "name": "Jaipur",
+    "type": "warehouse",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "connected_routes": ["RT-001", "RT-002", "RT-003", "RT-004"],
+    "avg_processing_time_hours": 2.0,
+    "congestion_level": "medium"
+  },
+  {
+    "node_id": "NODE-05",
+    "name": "Ahmedabad",
+    "type": "hub",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "connected_routes": ["RT-001", "RT-002"],
+    "avg_processing_time_hours": 2.5,
+    "congestion_level": "high"
+  },
+  {
+    "node_id": "NODE-06",
+    "name": "Surat",
+    "type": "warehouse",
+    "city": "Surat",
+    "state": "Gujarat",
+    "connected_routes": [],
+    "avg_processing_time_hours": 2.0,
+    "congestion_level": "medium"
+  },
+  {
+    "node_id": "NODE-07",
+    "name": "Nagpur",
+    "type": "hub",
+    "city": "Nagpur",
+    "state": "Maharashtra",
+    "connected_routes": [],
+    "avg_processing_time_hours": 2.0,
+    "congestion_level": "low"
+  },
+  {
+    "node_id": "NODE-08",
+    "name": "Bhopal",
+    "type": "checkpoint",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "connected_routes": [],
+    "avg_processing_time_hours": 1.0,
+    "congestion_level": "medium"
+  },
+  {
+    "node_id": "NODE-09",
+    "name": "Udaipur",
+    "type": "checkpoint",
+    "city": "Udaipur",
+    "state": "Rajasthan",
+    "connected_routes": ["RT-001", "RT-002"],
+    "avg_processing_time_hours": 1.0,
+    "congestion_level": "low"
+  },
+  {
+    "node_id": "NODE-10",
+    "name": "Lonavala",
+    "type": "checkpoint",
+    "city": "Lonavala",
+    "state": "Maharashtra",
+    "connected_routes": ["RT-005"],
+    "avg_processing_time_hours": 0.5,
+    "congestion_level": "low"
+  }
+]

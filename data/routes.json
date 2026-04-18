@@ -1,0 +1,74 @@
+[
+  {
+    "route_id": "RT-001",
+    "name": "Delhi–Ahmedabad via NH-8",
+    "origin": "Delhi",
+    "destination": "Ahmedabad",
+    "primary_highway": "NH-8",
+    "distance_km": 935,
+    "estimated_hours": 14,
+    "checkpoints": ["Delhi", "Jaipur", "Udaipur", "Ahmedabad"],
+    "toll_cost_inr": 850,
+    "alternative_route_id": "RT-002"
+  },
+  {
+    "route_id": "RT-002",
+    "name": "Delhi–Ahmedabad via NH-48",
+    "origin": "Delhi",
+    "destination": "Ahmedabad",
+    "primary_highway": "NH-48",
+    "distance_km": 1005,
+    "estimated_hours": 17,
+    "checkpoints": ["Delhi", "Gurgaon", "Rewari", "Jaipur", "Ahmedabad"],
+    "toll_cost_inr": 1200,
+    "alternative_route_id": "RT-001"
+  },
+  {
+    "route_id": "RT-003",
+    "name": "Delhi–Jaipur via NH-8",
+    "origin": "Delhi",
+    "destination": "Jaipur",
+    "primary_highway": "NH-8",
+    "distance_km": 260,
+    "estimated_hours": 4,
+    "checkpoints": ["Delhi", "Gurgaon", "Kotputli", "Jaipur"],
+    "toll_cost_inr": 220,
+    "alternative_route_id": "RT-004"
+  },
+  {
+    "route_id": "RT-004",
+    "name": "Delhi–Jaipur via NH-48",
+    "origin": "Delhi",
+    "destination": "Jaipur",
+    "primary_highway": "NH-48",
+    "distance_km": 268,
+    "estimated_hours": 5,
+    "checkpoints": ["Delhi", "Manesar", "Neemrana", "Jaipur"],
+    "toll_cost_inr": 310,
+    "alternative_route_id": "RT-003"
+  },
+  {
+    "route_id": "RT-005",
+    "name": "Mumbai–Pune via NH-48 Expressway",
+    "origin": "Mumbai",
+    "destination": "Pune",
+    "primary_highway": "NH-48",
+    "distance_km": 150,
+    "estimated_hours": 2.5,
+    "checkpoints": ["Mumbai", "Lonavala", "Pune"],
+    "toll_cost_inr": 245,
+    "alternative_route_id": "RT-006"
+  },
+  {
+    "route_id": "RT-006",
+    "name": "Mumbai–Pune via NH-4",
+    "origin": "Mumbai",
+    "destination": "Pune",
+    "primary_highway": "NH-4",
+    "distance_km": 170,
+    "estimated_hours": 4,
+    "checkpoints": ["Mumbai", "Panvel", "Khopoli", "Pune"],
+    "toll_cost_inr": 165,
+    "alternative_route_id": "RT-005"
+  }
+]
