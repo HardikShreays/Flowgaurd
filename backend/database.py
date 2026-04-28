@@ -1,12 +1,18 @@
 """FlowGuard database module. SQLite as single source of truth."""
 
 import json
+import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-DB_PATH: Path = Path(__file__).resolve().parent.parent / "flowguard.db"
+DB_PATH: Path = Path(
+    os.getenv(
+        "DB_PATH",
+        str(Path(__file__).resolve().parent.parent / "flowguard.db"),
+    )
+)
 
 
 def get_connection() -> sqlite3.Connection:

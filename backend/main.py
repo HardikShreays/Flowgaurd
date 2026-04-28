@@ -2,6 +2,7 @@
 
 from dataclasses import asdict
 import json
+import os
 from pathlib import Path
 import time
 
@@ -32,9 +33,12 @@ except Exception as e:
 
 
 app = FastAPI(title="FlowGuard API")
+allowed_origins = os.getenv("ALLOW_ORIGINS", "http://localhost:3000")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        origin.strip() for origin in allowed_origins.split(",") if origin.strip()
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

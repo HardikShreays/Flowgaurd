@@ -29,18 +29,12 @@ export function RiskHistoryChart({ shipmentId }: RiskHistoryChartProps) {
   const addPoint = useCallback(async (source: "effect" | "button" = "button") => {
     if (!shipmentId) return;
     if (inFlightRef.current) {
-      // #region agent log
-      fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H5",location:"RiskHistoryChart.tsx:addPoint:inFlightSkip",message:"Skipped duplicate addPoint while request in flight",data:{shipmentId,source},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion
       return;
     }
     try {
       inFlightRef.current = true;
       setLoading(true);
       setError(null);
-      // #region agent log
-      fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H1",location:"RiskHistoryChart.tsx:addPoint:beforeGetShipment",message:"Fetching latest shipment risk point",data:{shipmentId,existingPoints:history.length,source},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion
       const data = await api.getShipment(shipmentId);
       const point: RiskHistoryPoint = {
         shipment_id: shipmentId,
@@ -50,17 +44,11 @@ export function RiskHistoryChart({ shipmentId }: RiskHistoryChartProps) {
       };
       setHistory((prev) => {
         const next = [...prev, point].slice(-5);
-        // #region agent log
-        fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H2",location:"RiskHistoryChart.tsx:addPoint:setHistory",message:"Risk history point appended",data:{shipmentId,newPointScore:point.score,newPointLevel:point.level,nextLength:next.length,lastTimestamp:point.timestamp,source},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
         return next;
       });
     } catch (e) {
       console.error(e);
       setError(e instanceof Error ? e.message : "Failed to load risk history.");
-      // #region agent log
-      fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H3",location:"RiskHistoryChart.tsx:addPoint:catch",message:"Risk history point fetch failed",data:{shipmentId,error:e instanceof Error ? e.message : "unknown",source},timestamp:Date.now()})}).catch(()=>{});
-      // #endregion
     } finally {
       inFlightRef.current = false;
       setLoading(false);
@@ -78,10 +66,7 @@ export function RiskHistoryChart({ shipmentId }: RiskHistoryChartProps) {
 
   useEffect(() => {
     if (!shipmentId || !containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    // #region agent log
-    fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H6",location:"RiskHistoryChart.tsx:container:initialRect",message:"Risk chart container measured",data:{shipmentId,width:rect.width,height:rect.height},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
+    containerRef.current.getBoundingClientRect();
   }, [shipmentId, history.length]);
 
   const chartData = history.map((h) => ({
@@ -110,9 +95,6 @@ export function RiskHistoryChart({ shipmentId }: RiskHistoryChartProps) {
   }
 
   if (history.length === 1) {
-    // #region agent log
-    fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H4",location:"RiskHistoryChart.tsx:render:singlePointState",message:"Risk history chart rendered in single-point state",data:{shipmentId,historyLength:history.length,hasError:!!error},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     return (
       <div className="flex flex-col gap-4 p-4">
         {error && (
@@ -137,9 +119,6 @@ export function RiskHistoryChart({ shipmentId }: RiskHistoryChartProps) {
 
   return (
     <div className="flex flex-col gap-4 p-4">
-      {/* #region agent log */}
-      {fetch("http://127.0.0.1:7808/ingest/e5913699-4ab3-4493-a02b-dddde1d5e803",{method:"POST",headers:{"Content-Type":"application/json","X-Debug-Session-Id":"8af04b"},body:JSON.stringify({sessionId:"8af04b",runId:"pre-fix",hypothesisId:"H4",location:"RiskHistoryChart.tsx:render:chartState",message:"Risk history chart rendered in chart state",data:{shipmentId,historyLength:history.length,chartDataLength:chartData.length,hasError:!!error},timestamp:Date.now()})}).catch(()=>{}), null}
-      {/* #endregion */}
       {error && (
         <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-red-700 text-sm">
           {error}
